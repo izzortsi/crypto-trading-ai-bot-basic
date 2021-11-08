@@ -16,19 +16,19 @@ class Model:
         model = Sequential()
         x = len(x_train[0])
 
-        model.add(LSTM(256,input_shape=((1,x)), return_sequences = True, activation = "relu"))
+        model.add(LSTM(256,input_shape=((1,x)), return_sequences = True, activation = "tanh"))
         model.add(Dropout(0.2))
         model.add(BatchNormalization())
 
-        model.add(LSTM(128, input_shape=((1, x)), return_sequences=True, activation="relu"))
+        model.add(LSTM(128, input_shape=((1, x)), return_sequences=True, activation="tanh"))
         model.add(Dropout(0.2))
         model.add(BatchNormalization())
 
-        model.add(LSTM(128, input_shape=((1, x)), activation="relu"))
+        model.add(LSTM(128, input_shape=((1, x)), activation="tanh"))
         model.add(Dropout(0.2))
         model.add(BatchNormalization())
 
-        model.add(Dense(32, activation="relu"))
+        model.add(Dense(32, activation="tanh"))
         model.add(Dropout(0.2))
 
         model.add(Dense(2, activation="softmax"))

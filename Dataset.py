@@ -17,7 +17,7 @@ class Dataset:
     """
     def storeRawCoinHistoricData(self, name, coin_name, data):
         print("> Storing Raw Historic Data for ", coin_name)
-        with open('raw_historic_data/' + name + "_" + coin_name + '.json', 'w') as outfile:
+        with open(DATASET_DIR + name + "_" + coin_name + '.json', 'w') as outfile:
             json.dump(data, outfile)
 
     """
@@ -28,7 +28,7 @@ class Dataset:
 
         data = None
 
-        with open('raw_historic_data/' + coin_name + '.json', ) as json_file:
+        with open(DATASET_DIR + coin_name + '.json', ) as json_file:
             data = json.load(json_file)
 
         return data
